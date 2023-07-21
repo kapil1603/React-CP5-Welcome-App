@@ -13,15 +13,15 @@ class Welcome extends Component {
   state = {subscribe: 'Subscribe', subscribed: 'Subscribed'}
 
   sub = () => {
-    this.setState(prevState => ({subscribe: prevState.subscribe}))
+    this.setState(prevState => ({subscribe: prevState.subscribed}))
   }
 
   unsub = () => {
-    this.setState(prevState => ({subscribed: prevState.subscribed}))
+    this.setState(prevState => ({subscribed: prevState.subscribe}))
   }
 
   render() {
-    const {subscribe, subscribed} = this.subscribe
+    const {subscribe, subscribed} = this.state
     let butt
     if (subscribe === 'Subscribe') {
       butt = (
