@@ -1,23 +1,38 @@
 // Write your code here
 
 import {Component} from 'react'
+import './index.css'
+
+// class Welcome extends Component {
+//   render() {
+//     return <h1> kapil </h1>
+//   }
+// }
 
 class Welcome extends Component {
-  state = {subscribe: true}
+  state = {subscribe: 'Subscribe', subscribed: 'Subscribed'}
+
+  sub = () => {
+    this.setState(prevState => ({subscribe: prevState.subscribe}))
+  }
+
+  unsub = () => {
+    this.setState(prevState => ({subscribed: prevState.subscribed}))
+  }
 
   render() {
-    const {subscribe} = this.subscribe
+    const {subscribe, subscribed} = this.subscribe
     let butt
-    if (subscribe) {
+    if (subscribe === 'Subscribe') {
       butt = (
-        <button className="button" type="button">
-          Subscribe
+        <button className="button" type="button" onClick={this.sub}>
+          {subscribe}
         </button>
       )
     } else {
       butt = (
-        <button className="button" type="button">
-          Subscribed
+        <button className="button" type="button" onClick={this.unsub}>
+          {subscribed}
         </button>
       )
     }
