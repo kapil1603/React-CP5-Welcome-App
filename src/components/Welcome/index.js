@@ -16,8 +16,15 @@ class Welcome extends Component {
     this.setState(prevState => ({subscribe: prevState.subscribed}))
   }
 
+  //   unsub = () => {
+  //     this.setState(prevState => ({subscribed: prevState.subscribe}))
+  //   }
+
   unsub = () => {
-    this.setState(prevState => ({subscribed: prevState.subscribe}))
+    this.setState({
+      subscribe: 'Subscribe',
+      subscribed: 'Subscribed',
+    })
   }
 
   render() {
